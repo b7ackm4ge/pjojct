@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Virtual Book Club — Reader's Community</title>
+    <meta name="description" content="A lively digital reading community to share book recommendations, reviews, and discussions.">
+    <meta name="theme-color" content="#0f2e1f">
+    <meta name="color-scheme" content="dark light">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header" role="banner">
+        <div class="container">
+            <h1 class="brand"><span aria-hidden="true">📚</span> Virtual Book Club</h1>
+            <nav class="site-nav" aria-label="Primary">
+                <div id="navCategories" class="nav-cats"></div>
+                <button id="ecoToggle" class="eco-toggle" type="button" aria-pressed="false" title="Toggle Eco Mode">🌿 Eco</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main" class="site-main" tabindex="-1">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="container">
+                <h2 id="hero-title">Reader's Community</h2>
+                <p>Discover your next favorite book, share thoughtful reviews, and join vibrant discussions with fellow readers.</p>
+                <form id="searchForm" class="search" role="search" aria-label="Search books">
+                    <label for="searchInput" class="visually-hidden">Search recommendations</label>
+                    <input id="searchInput" name="q" type="search" placeholder="Search by title, author, or tag" autocomplete="off">
+                    <button type="submit" aria-label="Search">Search</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container layout">
+                <aside class="sidebar" aria-label="Categories">
+                    <h3>Categories</h3>
+                    <div id="categoryList" class="stack"></div>
+                    <h4 style="margin-top:14px">Tags</h4>
+                    <div id="tags" class="tag-row" role="list" aria-label="Filter by tag"></div>
+                </aside>
+                <div class="main-column">
+                    <section id="recommendations" aria-labelledby="recs-title">
+                        <h3 id="recs-title">Book Recommendations</h3>
+                        <div id="recommendationList" class="grid" aria-live="polite"></div>
+                    </section>
+
+                    <section id="reviews" class="alt" aria-labelledby="reviews-title">
+                        <h3 id="reviews-title">Reviews</h3>
+                        <form id="reviewForm" class="card form" autocomplete="off">
+                            <div class="row">
+                                <div class="field">
+                                    <label for="reviewTitle">Book title</label>
+                                    <input id="reviewTitle" required placeholder="e.g., The Night Circus">
+                                </div>
+                                <div class="field">
+                                    <label for="reviewAuthor">Author</label>
+                                    <input id="reviewAuthor" required placeholder="e.g., Erin Morgenstern">
+                                </div>
+                                <div class="field">
+                                    <label for="reviewRating">Rating</label>
+                                    <select id="reviewRating" required>
+                                        <option value="">Select</option>
+                                        <option value="1">★☆☆☆☆</option>
+                                        <option value="2">★★☆☆☆</option>
+                                        <option value="3">★★★☆☆</option>
+                                        <option value="4">★★★★☆</option>
+                                        <option value="5">★★★★★</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="reviewText">Your review</label>
+                                <textarea id="reviewText" rows="4" required placeholder="What did you love or dislike?"></textarea>
+                            </div>
+                            <button type="submit">Post Review</button>
+                        </form>
+                        <div id="reviewList" class="stack" aria-live="polite"></div>
+                    </section>
+
+                    <section id="discussions" aria-labelledby="discussions-title">
+                        <h3 id="discussions-title">Discussions</h3>
+                        <form id="threadForm" class="card form" autocomplete="off">
+                            <div class="field">
+                                <label for="threadTitle">Topic</label>
+                                <input id="threadTitle" required placeholder="e.g., Magical Realism recommendations">
+                            </div>
+                            <div class="field">
+                                <label for="threadBody">Message</label>
+                                <textarea id="threadBody" rows="3" required placeholder="Start the conversation..."></textarea>
+                            </div>
+                            <button type="submit">Start Thread</button>
+                        </form>
+                        <div id="threadList" class="stack" aria-live="polite"></div>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <p>Made with ❤️ by the Virtual Book Club community.</p>
+            <p style="margin-top:6px; font-size:0.9rem; opacity:0.8">Background image: library ambience via Unsplash.</p>
+        </div>
+    </footer>
+
+    <script src="app.js" defer></script>
+    <noscript>This site works best with JavaScript enabled for saving reviews and discussions locally.</noscript>
+</body>
+</html>
+
